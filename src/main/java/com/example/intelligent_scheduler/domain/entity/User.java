@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 // entity user sẽ ánh xạ
 @Entity
@@ -15,7 +16,7 @@ import java.time.OffsetDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     @Column( unique = true, nullable = false)
     private String email;
