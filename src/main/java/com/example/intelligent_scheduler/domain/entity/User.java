@@ -2,8 +2,11 @@ package com.example.intelligent_scheduler.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalTime;
+import java.time.OffsetDateTime;
 
 // entity user sẽ ánh xạ
 @Entity
@@ -32,4 +35,21 @@ public class User {
     // time ket thuc
     @Column(name = "working_hour_end")
     private LocalTime workingHourEnd;
+
+    // vùng thời gian
+    private String timezone;
+
+    @Column(name = "is_email_verified")
+    private Boolean isEmailVerified = false;
+
+    @Column(name = "is_active")
+    private Boolean isActive = true;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private OffsetDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private OffsetDateTime updatedAt;
 }
