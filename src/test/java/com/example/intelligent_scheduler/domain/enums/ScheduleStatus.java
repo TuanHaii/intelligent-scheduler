@@ -1,0 +1,5 @@
+package com.example.intelligent_scheduler.domain.enums;
+
+public enum ScheduleStatus {
+    SCHEDULED, COMPLETED, CANCELLED
+}

@@ -6,12 +6,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.SQLRestriction;
+
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "tasks")
-@SQLRestriction("deleted_at IS NULL")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class Task {
     @Id

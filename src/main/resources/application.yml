@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: intelligent-scheduler
+    jpa:
+        hibernate:
+            ddl-auto: update
+app:
+    jwt:
+        secret: ${JWT_SECRET:8hrxmh/tJF8jDTayjmFC5BZ1m8IV4le3orEANr+T7F0nRNp65HOnIOPVY2aF0UQYQAsWvbGvDti029/b0waDgw==}
+        expiration-seconds: 900         # 15 phut
+        refresh-expiration-seconds: 604800 # 7 ngày
+    openai:
+        api-key: ${OPENAI_API_KEY:mock-key-truoc-khi-co-key-that}
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true

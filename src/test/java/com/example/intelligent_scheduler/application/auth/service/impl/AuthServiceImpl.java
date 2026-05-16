@@ -10,7 +10,6 @@ import com.example.intelligent_scheduler.repository.UserRepository;
 import com.example.intelligent_scheduler.domain.entity.RefreshToken;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,6 @@ import com.example.intelligent_scheduler.infrastructure.security.jwtProvider;
 
 import java.time.OffsetDateTime;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
@@ -69,9 +67,9 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
         refreshTokenRepository.save(refreshTokenEntity);
-        log.info("Đã lưu Refresh Token mới cho user: {} ", user.getEmail());
+        System.out.println("Đã lưu Refresh Token mới cho user: {} " + user.getEmail());
 
-        log.info("User {} đã đăng nhập thành công ", user.getEmail());
+        System.out.println("User {} đã đăng nhập thành công " + user.getEmail());
         //4. trả về token
         return new TokenResponse(accessToken, refreshToken,"Bearer", 3600L);
     }

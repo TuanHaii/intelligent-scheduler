@@ -27,9 +27,6 @@ public class User {
     @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "is_email_verified")
-    private Boolean isEmailVerified = false;
-
     private String role;
 
     // time bat dau
@@ -42,6 +39,9 @@ public class User {
 
     // vùng thời gian
     private String timezone;
+
+    @Column(name = "is_email_verified")
+    private Boolean isEmailVerified = false;
 
     @Column(name = "is_active")
     private Boolean isActive = true;
