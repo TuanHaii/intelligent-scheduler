@@ -9,6 +9,8 @@ import com.example.intelligent_scheduler.application.schedule.service.ScheduleSe
 import com.example.intelligent_scheduler.domain.entity.Schedule;
 import com.example.intelligent_scheduler.domain.entity.Task;
 import com.example.intelligent_scheduler.domain.entity.User;
+import com.example.intelligent_scheduler.domain.enums.ScheduleStatus;
+import com.example.intelligent_scheduler.domain.enums.TaskStatus;
 import com.example.intelligent_scheduler.repository.ScheduleRepository;
 import com.example.intelligent_scheduler.repository.TaskRepository;
 import com.example.intelligent_scheduler.repository.UserRepository;
@@ -62,6 +64,8 @@ public class ScheduleServiceImpl implements ScheduleService {
         Schedule schedule = Schedule.builder()
                 .user(user)
                 .task(task)
+                .title(request.title())
+                .status(ScheduleStatus.PLANNED) // mac dinh tao lich moi se la planned
                 .startTime(request.startTime())
                 .endTime(request.endTime())
                 .build();
