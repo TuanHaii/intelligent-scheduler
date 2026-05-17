@@ -5,12 +5,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.SQLRestriction;
+
 import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "schedules")
-@SQLRestriction("deleted_at IS NULL")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class Schedule {
     @Id
@@ -22,8 +21,8 @@ public class Schedule {
      @JoinColumn(name = "user_id", nullable = false)
      private User user;
 
-     // Lich nay giải quyết công việc nào nếu task_id null thì lịch này là lịch trống, có thể dùng để lên lịch cho công việc mới
-     @OneToOne(fetch = FetchType.LAZY)
+     // 1 schedule co the co nhieu task
+     @ManyToOne(fetch = FetchType.LAZY)
      @JoinColumn(name = "task_id")
      private Task task;
 

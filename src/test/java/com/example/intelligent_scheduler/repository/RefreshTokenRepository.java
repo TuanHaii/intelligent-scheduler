@@ -11,6 +11,6 @@ import java.util.UUID;
 public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long> {
     Optional<RefreshToken> findByToken(String token);
 
-    // Xóa bỏ các token cũ của user khi họ login mới
+    // Xóa bỏ các token cũ của user khi họ login mới (tùy chọn chính sách bảo mật)
     void deleteByUserId(UUID userId);
 }
